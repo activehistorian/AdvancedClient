@@ -14,8 +14,12 @@ public class MainActivity extends Activity {
 	private Button Submit;
 	private static String RoomDetails;
 	private static String MasterIP;
+	private static String MasterIP2;
+	private static String MasterIP3;
 	private EditText TempDetails;
-	private EditText TempIP;
+	private EditText IP1;
+	private EditText IP2;
+	private EditText IP3;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +27,18 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		Submit = (Button)findViewById(R.id.connect);
 		TempDetails = (EditText)findViewById(R.id.roomnamenumber);
-		TempIP = (EditText)findViewById(R.id.ipaddress);
+		IP1 = (EditText)findViewById(R.id.ipaddress);
+		IP2 = (EditText)findViewById(R.id.ipaddress2);
+		IP3 = (EditText)findViewById(R.id.ipaddress3);
 		
 		Submit.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 RoomDetails = TempDetails.getText().toString();
-                MasterIP = TempIP.getText().toString();
+                MasterIP = IP1.getText().toString();
+                MasterIP2 = IP2.getText().toString();
+                MasterIP3 = IP3.getText().toString();
                 if(RoomDetails.equals("")|| MasterIP.equals("")){
-                	Toast toast = Toast.makeText(getApplicationContext(),"No blank fields allowed",Toast.LENGTH_LONG);
+                	Toast toast = Toast.makeText(getApplicationContext(),"Must Provide at least Room Number and Master IP 1",Toast.LENGTH_LONG);
                 	toast.show();
                 }
                 else{
@@ -39,6 +47,22 @@ public class MainActivity extends Activity {
                 }
           }
       });
+	}
+	
+	public static boolean validIP(String ip){
+		int x = 0;
+		
+		
+		
+		return false;
+	}
+	
+	public static String getSecondaryIP(){
+		return MasterIP2;
+	}
+	
+	public static String getTertiaryIP(){
+		return MasterIP3;
 	}
 	
 	public static String getMasterIP(){

@@ -2,7 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#000000" 
     tools:context=".MainActivity" >
+    
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -17,6 +19,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:text="Room Name or Number"
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
@@ -36,9 +39,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#ffffff"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/roomnamenumber"
-        android:text="Master IP Address"
+        android:text="Primary Staff ID"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -49,32 +53,49 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView2" />
 
-    <RelativeLayout
+    <EditText
+        android:id="@+id/ipaddress2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/connect" >
+        android:layout_below="@+id/textView3"
+        android:ems="10" />
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/ucl" />
-
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ipaddress"
+        android:text="Secondary Staff ID"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/connect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ipaddress"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Connect" />
+        android:text="Connect Device" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ipaddress2"
+        android:text="Tertiary Staff ID"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/ipaddress3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView4" />
 
 </RelativeLayout>
