@@ -27,6 +27,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		Submit = (Button)findViewById(R.id.connect);
 		TempDetails = (EditText)findViewById(R.id.roomnamenumber);
+		
 		IP1 = (EditText)findViewById(R.id.ipaddress);
 		IP2 = (EditText)findViewById(R.id.ipaddress2);
 		IP3 = (EditText)findViewById(R.id.ipaddress3);
@@ -37,24 +38,80 @@ public class MainActivity extends Activity {
                 MasterIP = IP1.getText().toString();
                 MasterIP2 = IP2.getText().toString();
                 MasterIP3 = IP3.getText().toString();
+                boolean a,b,c,d;
+            
                 if(RoomDetails.equals("")|| MasterIP.equals("")){
-                	Toast toast = Toast.makeText(getApplicationContext(),"Must Provide at least Room Number and Master IP 1",Toast.LENGTH_LONG);
+                	Toast toast = Toast.makeText(getApplicationContext(),
+                			"Must Provide at least Room Number and Master IP 1",Toast.LENGTH_LONG);
                 	toast.show();
                 }
                 else{
-                	Intent intent = new Intent(MainActivity.this,BroadcastActivity.class);
-                    startActivity(intent);
+                	a = checkIP(MasterIP); b = checkIP(MasterIP2); c = checkIP(MasterIP3);
+                	if(a == true && b == true && c == true){
+                		Intent intent = new Intent(MainActivity.this,BroadcastActivity.class);
+                        startActivity(intent);
+                	} 
+                	else{
+                		Toast toast = Toast.makeText(getApplicationContext(), "Please check Staff ID's", Toast.LENGTH_SHORT);
+                		toast.show();
+                	}	
                 }
-          }
+            }
       });
+		
 	}
 	
-	public static boolean validIP(String ip){
-		int x = 0;
+	public boolean checkIP(String ip){
+		if(ip.equals("")){return true;}
+		int counter = 0;
+		int part1, part2, part3, part4;
+		
+		char[] ipArray = ip.toCharArray();
+		String temp = "";
 		
 		
+		while(ipArray[counter] != '.' && counter < (ipArray.length - 1)){
+			temp = temp + ipArray[counter];
+			counter = counter + 1;
+		}
+			
+		if(counter > 3){return false;}
+		counter = counter + 1;
+		part1 = Integer.parseInt(temp);
+		temp = "";
+		if(part1 < 0 || part1 > 255){return false;}
 		
-		return false;
+		while(ipArray[counter] != '.' && counter < (ipArray.length - 1)){
+			temp = temp + ipArray[counter];
+			counter = counter + 1;
+		}
+		
+		if (counter > 7){return false;}
+		counter = counter + 1;
+		part2 = Integer.parseInt(temp);
+		temp = "";
+		if(part2 < 0 || part2 > 255){ return false;}
+		
+		while(ipArray[counter] != '.' && counter < (ipArray.length - 1)){
+			temp = temp + ipArray[counter];
+			counter = counter + 1;
+		}
+		
+		if (counter > 11){return false;}
+		counter = counter + 1;
+		part3 = Integer.parseInt(temp);
+		temp = "";
+		if(part3 < 0 || part3 > 255){ return false;}
+		
+		while(ipArray[counter] != '.' && counter < (ipArray.length - 1)){
+			temp = temp + ipArray[counter];
+			counter = counter + 1;
+		}
+		
+		part4 = Integer.parseInt(temp);
+		if(part4 < 0 || part4 > 255){ return false;}
+		
+		return true;
 	}
 	
 	public static String getSecondaryIP(){

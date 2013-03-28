@@ -39,6 +39,7 @@ public class BroadcastActivity extends Activity {
 	private Button SimulateSensor;
 	private boolean connected = false;
 	private static final String DEVICE_ADDRESS =  "00:12:12:04:32:51";
+	int x = 0;
 	
 	private ArduinoReceiver arduinoReceiver = new ArduinoReceiver();
 
@@ -187,8 +188,9 @@ public class BroadcastActivity extends Activity {
 			final int dataType = intent.getIntExtra(AmarinoIntent.EXTRA_DATA_TYPE, -1);
 			if (dataType == AmarinoIntent.STRING_EXTRA){
 				data = intent.getStringExtra(AmarinoIntent.EXTRA_DATA);
+				x = x + 1;
 				if (data != null){
-					sensorvalue.setText(Integer.toString(irtodist(data)));	
+					sensorvalue.setText(Integer.toString(x));	
 				}
 			}
 		}
