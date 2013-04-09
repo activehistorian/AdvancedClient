@@ -63,6 +63,9 @@ public class MainActivity extends Activity {
 	
 	public boolean checkIP(String ip){
 		if(ip.equals("")){return true;}
+		if(ip.length() > 15 || ip.length() < 7){
+			return false;
+		}
 		int counter = 0;
 		int part1, part2, part3, part4;
 		
@@ -103,7 +106,7 @@ public class MainActivity extends Activity {
 		temp = "";
 		if(part3 < 0 || part3 > 255){ return false;}
 		
-		while(ipArray[counter] != '.' && counter < (ipArray.length - 1)){
+		while(counter < (ipArray.length - 1)){
 			temp = temp + ipArray[counter];
 			counter = counter + 1;
 		}
