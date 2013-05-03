@@ -67,7 +67,7 @@ public class BroadcastActivity extends Activity {
 		connectedIP2.setText(SecondaryIP);
 		connectedIP3.setText(TertiaryIP);
 		
-		/*SimulateSensor = (Button)findViewById(R.id.sensor);
+	/*	SimulateSensor = (Button)findViewById(R.id.sensor);
 		SimulateSensor.setOnClickListener(new OnClickListener() {
             	public void onClick(View v) {
             		if (!connected) {
@@ -91,7 +91,7 @@ public class BroadcastActivity extends Activity {
                                 
                     }
             	}
-		});*/
+		}); */
 	}
 	
 	@Override
@@ -184,13 +184,16 @@ public class BroadcastActivity extends Activity {
 		public void onReceive(Context context, Intent intent) {
 			String data = null;
 			
-			// the type of data which is added to the intent
 			final int dataType = intent.getIntExtra(AmarinoIntent.EXTRA_DATA_TYPE, -1);
 			if (dataType == AmarinoIntent.STRING_EXTRA){
 				data = intent.getStringExtra(AmarinoIntent.EXTRA_DATA);
-				x = x + 1;
 				if (data != null){
-					sensorvalue.setText(Integer.toString(x));	
+					sensorvalue.setText(data);	
+					x = Integer.parseInt(data);
+					if(x > 2 && x < 40){
+						Thread thread = new Thread(new ClientThread());
+                        thread.start();
+					}
 				}
 			}
 		}
@@ -205,9 +208,7 @@ public class BroadcastActivity extends Activity {
     	else{
     		dist = 200;
     	}
-    	return dist;
-    			
+    	return dist;			
     }
-	
 }
 	

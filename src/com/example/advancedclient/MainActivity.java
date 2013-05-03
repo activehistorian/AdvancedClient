@@ -1,4 +1,6 @@
 package com.example.advancedclient;
+import java.net.InetAddress;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,9 +15,9 @@ public class MainActivity extends Activity {
 
 	private Button Submit;
 	private static String RoomDetails;
-	private static String MasterIP;
-	private static String MasterIP2;
-	private static String MasterIP3;
+	private static String MasterIP = null;
+	private static String MasterIP2 = null;
+	private static String MasterIP3 = null;
 	private EditText TempDetails;
 	private EditText IP1;
 	private EditText IP2;
@@ -62,6 +64,22 @@ public class MainActivity extends Activity {
 	}
 	
 	public boolean checkIP(String ip){
+		try{
+		if(ip.length() == 0 || ip.equals("")){
+			return true;
+		}else{
+			try{
+				InetAddress serverAddr = InetAddress.getByName(ip);
+				return true;
+			}catch(Exception e){return false;}
+		}
+		}
+		 catch(Exception e) {
+			return false;
+		}
+	}
+	
+	/*public boolean checkIP(String ip){
 		if(ip.equals("")){return true;}
 		if(ip.length() > 15 || ip.length() < 7){
 			return false;
@@ -115,7 +133,7 @@ public class MainActivity extends Activity {
 		if(part4 < 0 || part4 > 255){ return false;}
 		
 		return true;
-	}
+	} */
 	
 	public static String getSecondaryIP(){
 		return MasterIP2;

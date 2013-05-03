@@ -28,27 +28,6 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff" />
 
-        <TextView
-            android:id="@+id/iplabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="28dp"
-            android:text="IP Address"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/iplabel2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/iplabel"
-            android:layout_below="@+id/iplabel"
-            android:text="IP Address 2"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff" />
-
         <!--
           <Button
             android:id="@+id/sensor"
@@ -62,30 +41,51 @@
         -->
 
         <TextView
+            android:id="@+id/iplabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp"
+            android:text="IP Address"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/iplabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/textView1"
+            android:layout_below="@+id/iplabel"
+            android:text="IP Address 2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff" />
+
+        <TextView
             android:id="@+id/iplabel3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/iplabel2"
+            android:layout_alignLeft="@+id/iplabel"
             android:layout_below="@+id/iplabel2"
             android:text="IP Address 3"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff" />
 
-        <Button
-            android:id="@+id/StartListening"
+        <!--  <Button
+            android:id="@+id/sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_alignRight="@+id/iplabel2"
             android:layout_centerVertical="true"
-            android:text="Start Listening" />
+            android:text="Start Listening" /> -->
 
         <TextView
             android:id="@+id/SensorValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/textView1"
-            android:layout_below="@+id/StartListening"
-            android:layout_marginTop="44dp"
+            android:layout_below="@+id/iplabel3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="72dp"
             android:text="Not Listening"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff" />
